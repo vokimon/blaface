@@ -7,3 +7,60 @@
 
 /* Your styles here */
 
+body, html
+{
+	color: #ffe;
+	/* fallback */
+	background-color: #1a82f7;
+	background: url(images/linear_bg_2.png);
+	background-repeat: repeat-x;
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%,
+		from(#1a82f7), to(#2F2727));
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(bottom, #2F2727, #1a82f7);
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(bottom, #2F2727, #1a82f7);
+	/* IE 10 */
+	background: -ms-linear-gradient(bottom, #2F2727, #1a82f7);
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(bottom, #2F2727, #1a82f7);
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.actionbuttons
+{
+	text-align: center;
+    background: rgba(133, 156, 228, .1);
+    border: 1px solid #1b335b;
+    -webkit-box-shadow: inset 1px 1px 8px 1px #1b335b;
+    -moz-box-shadow: inset 1px 1px 8px 1px #1b335b;
+    box-shadow: inset 1px 1px 8px 1px #1b335b;
+	padding: 3px;
+	bottom: 0%;
+	width: 100%;
+	position: fixed;
+}
+
+#faceit
+{
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1
+{
+	padding: 0px 3px;
+	margin: 0px;
+	border: white;
+	background: #444;
+}
+
+
+
+
+
