@@ -1,12 +1,13 @@
-# A Blank Template for Open Web Apps
+# Blaface
 
-The is a minimal template that has a little HTML, CSS, and js to help
-you start writing an Open Web App.
+This is a proof of concept of a web app animating svg files
+interactively.
 
-This is part of the [mortar](https://github.com/mozilla/mortar/)
-template collection for building Open Web Apps.
+The skeleton is based on [mortar](https://github.com/mozilla/mortar/).
 
-# Usage
+
+
+# Mortar Usage
 
 There are a few ways to get this template:
 

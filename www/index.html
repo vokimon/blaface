@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
 
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
 
-    <!-- Place favicon.ico in the root directory -->
+	<!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-    <!-- Use this installation button to install locally without going
-         through the marketpace (see app.js) -->
-    <button id="install-btn">Install</button>    
+	<link rel="stylesheet" href="css/app.css" />
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+	<link rel="icon" href="img/icons/blaface-icon-16.png" />
+</head>
+<body>
+	<!-- Use this installation button to install locally without going
+		 through the marketpace (see app.js) -->
+	<button id="install-btn">Install</button>    
 
-    <!-- Write your application here -->
+	<!-- Write your application here -->
+	<p>Inline (inserted with js)</p>
+	<div
+		id='faceit1'
+		class='loadsvg'
+		src='blaface.svg'
+		></div>
+	<p>Object</p>
+	<object
+		id='faceit2'
+		data="blaface.svg"
+		type="image/svg+xml"
+		sandbox="allow-same-origin"
+		></object>
+	<p>Iframe</p>
+	<iframe
+		id='faceit3'
+		src="blaface.svg"
+		type="image/svg+xml"
+		height='350px'
+		width='250px'
+		sandbox="allow-same-origin"
+		style='border: none; text-align:center;'
+		></iframe>
 
+	<div class='actionbuttons'>
+		Upper eyelid:
+			<input type="range"
+			id = "upperlid"
+			min="0"
+			max="34"
+			step="1"
+			value="6"><br/>
+		Lower eyelid:
+		<input type="range"
+			id = "lowerlid"
+			min="0"
+			max="6"
+			step="1"
+			value="6"><br/>
+		<input type='button' id='sleep' value='Sleep me' />
+		<input type='button' id='awake' value='Awake me' />
+		<input type='button' id='mute' value='Mute' />
+	</div>
+	<audio
+		id="blaaudio" 
+		preload
+		autoload
+		src = 'bla.wav'
+		/>
+	<div id='log'>
+	</div>
 
-
-
-
-
-
-    
-    <!-- Using require.js, a module system for javascript, include the
-         js files. This loads "main.js", which in turn can load other
-         files, all handled by require.js:
-         http://requirejs.org/docs/api.html#jsfiles -->
-    <script type="text/javascript"
+	<!-- Using require.js, a module system for javascript, include the
+		 js files. This loads "main.js", which in turn can load other
+		 files, all handled by require.js:
+		 http://requirejs.org/docs/api.html#jsfiles -->
+    <script
             data-main="js/init.js"
-            src="js/lib/require.js"></script>
-  </body>
+            src="js/lib/require.js">
+	</script>
+</body>
 </html>
