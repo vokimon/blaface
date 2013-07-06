@@ -1,30 +1,33 @@
 {
-  "version": "0.1",
-  "name": "My App",
-  "description": "Your new awesome Open Web App",
-  "launch_path": "/",
+  "version": "2.0",
+  "name": "blaface",
+  "description": "Animated babling face",
+  "launch_path": "/index.html",
+  "appcache_path": "/cache.manifest",
   "icons": {
-    "16": "/img/icons/mortar-16.png",
-    "48": "/img/icons/mortar-48.png",
-    "128": "/img/icons/mortar-128.png"
+    "16": "/img/icons/blaface-icon-16.png",
+    "48": "/img/icons/blaface-icon-48.png",
+    "64": "/img/icons/blaface-icon-64.png",
+    "128": "/img/icons/blaface-icon-128.png",
+    "256": "/img/icons/blaface-icon-256.png"
   },
   "developer": {
-    "name": "Your Name",
-    "url": "http://yourawesomeapp.com"
+    "name": "David García Garzón",
+    "url": "http://canvoki.net/coder"
   },
   "installs_allowed_from": ["*"],
   "appcache_path": "/cache.manifest",
   "locales": {
     "es": {
-      "description": "Su nueva aplicación impresionante Open Web",
+      "description": "Cara animada charlatana",
       "developer": {
-        "url": "http://yourawesomeapp.com"
+        "url": "https://github.com/vokimon/envote/blob/master/LEEME.md"
       }
     },
-    "it": {
-      "description": "Il vostro nuovo fantastico Open Web App",
+    "ca": {
+      "description": "Cara animada xerraire",
       "developer": {
-        "url": "http://yourawesomeapp.com"
+        "url": "https://github.com/vokimon/envote/blob/master/LLEGEIXME.md"
       }
     }
   },
