@@ -4,9 +4,9 @@
   "description": "Animated babling face",
   "launch_path": "/blaface/index.html",
   "icons": {
-    "64": "/img/icons/blaface-icon-64.png",
-    "128": "/img/icons/blaface-icon-128.png",
-    "256": "/img/icons/blaface-icon-256.png"
+    "64": "/blaface/img/icons/blaface-icon-64.png",
+    "128": "/blaface/img/icons/blaface-icon-128.png",
+    "256": "/blaface/img/icons/blaface-icon-256.png"
   },
   "developer": {
     "name": "David García Garzón",
