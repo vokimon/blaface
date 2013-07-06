@@ -3,38 +3,48 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
-	<meta name="description" content="">
+	<title>Bla Face</title>
+	<meta name="description" content="A babling face">
 	<meta name="viewport" content="width=device-width">
 
 	<!-- Place favicon.ico in the root directory -->
 
 	<link rel="stylesheet" href="css/app.css" />
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
-	<link rel="icon" href="img/icons/blaface-icon-16.png" />
+	<link rel="icon" type="image/png" href="img/icons/blaface-icon-128.png" />
 </head>
 <body>
 	<!-- Use this installation button to install locally without going
 		 through the marketpace (see app.js) -->
+<!--
 	<button id="install-btn">Install</button>    
+-->
 
 	<!-- Write your application here -->
-	<p>Inline (inserted with js)</p>
+	<h1>The Bla Face</h1>
+
+
+	<!-- Inserting external svg via js -->
+	<!--
 	<div
-		id='faceit1'
+		id='faceit'
 		class='loadsvg'
 		src='blaface.svg'
 		></div>
-	<p>Object</p>
+	-->
+	<!-- Embeded object  -->
+
 	<object
-		id='faceit2'
+		id='faceit'
 		data="blaface.svg"
 		type="image/svg+xml"
 		sandbox="allow-same-origin"
 		></object>
-	<p>Iframe</p>
+
+	<!-- iframe method -->
+	<!--
 	<iframe
-		id='faceit3'
+		id='faceit'
 		src="blaface.svg"
 		type="image/svg+xml"
 		height='350px'
@@ -42,6 +52,7 @@
 		sandbox="allow-same-origin"
 		style='border: none; text-align:center;'
 		></iframe>
+	-->
 
 	<div class='actionbuttons'>
 		Upper eyelid:

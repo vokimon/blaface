@@ -40,7 +40,7 @@ define(function(require) {
 
 	function faceitsvg()
 	{
-		var container = $(document).find("#faceit1")[0];
+		var container = $(document).find("#faceit")[0];
 		// For object and embed
 		if (container.contentDocument)
 			return container.contentDocument;

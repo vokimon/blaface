@@ -3,10 +3,7 @@
   "name": "blaface",
   "description": "Animated babling face",
   "launch_path": "/index.html",
-  "appcache_path": "/cache.manifest",
   "icons": {
-    "16": "/img/icons/blaface-icon-16.png",
-    "48": "/img/icons/blaface-icon-48.png",
     "64": "/img/icons/blaface-icon-64.png",
     "128": "/img/icons/blaface-icon-128.png",
     "256": "/img/icons/blaface-icon-256.png"
