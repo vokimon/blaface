@@ -9,6 +9,7 @@
 
 body, html
 {
+	font-family: sans-serif;
 	color: #ffe;
 	/* fallback */
 	background-color: #1a82f7;
@@ -26,6 +27,7 @@ body, html
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(bottom, #2F2727, #1a82f7);
 	height: 100%;
+	width: 100%;
 	margin: 0px;
 	padding: 0px;
 }
@@ -35,13 +37,51 @@ body, html
 	text-align: center;
     background: rgba(133, 156, 228, .1);
     border: 1px solid #1b335b;
-    -webkit-box-shadow: inset 1px 1px 8px 1px #1b335b;
-    -moz-box-shadow: inset 1px 1px 8px 1px #1b335b;
+    border-top-color: red;
     box-shadow: inset 1px 1px 8px 1px #1b335b;
 	padding: 10px;
-	bottom: 0%;
-	width: 100%;
+	bottom: 0pt;
+	left: 1pt;
+	right: 1pt;
 	position: fixed;
+	color: white;
+	text-shadow: black 1px 1px 2px;
+}
+
+.actionbuttons input
+{
+	padding: 3px;
+	background: #44f;
+	color: white;
+	text-shadow: black 1px 1px 2px;
+	border-radius: 5px;
+	margin: 2px;
+}
+
+.actionbuttons input[type="button"]
+{
+	color: white;
+	text-shadow: black 1px 1px 2px;
+	font-weight: bold;
+	background: -webkit-linear-gradient(bottom, #272F27, #1a82f7);
+	background: -moz-linear-gradient(bottom, #272F27, #1a82f7);
+	background: linear-gradient(bottom, #272F27, #1a82f7);
+	border: black 2px solid;
+	margin: 1pt;
+	padding: 4px 5px;
+}
+
+.actionbuttons input[type="button"]:hover
+{
+	background: linear-gradient(bottom, #373F37, #2a92f7);
+	background: -webkit-linear-gradient(bottom, #373F37, #2a92f7);
+	background: -moz-linear-gradient(bottom, #373F37, #2a92f7);
+}
+.actionbuttons input[type="button"]:active
+{
+	background: linear-gradient(top, #272F27, #1a82f7);
+	background: -webkit-linear-gradient(top, #272F27, #1a82f7);
+	background: -moz-linear-gradient(top, #272F27, #1a82f7);
 }
 
 #faceit
@@ -54,10 +94,20 @@ body, html
 
 h1
 {
+	text-align: center;
+	text-shadow: black 1px 1px 2px;
+	color: #ffa;
 	padding: 0px 3px;
 	margin: 0px;
 	border: white;
 	background: #444;
+}
+
+h2
+{
+	margin: 0;
+	font-size: 14pt;
+
 }
 
 
