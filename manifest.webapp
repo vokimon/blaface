@@ -2,7 +2,7 @@
   "version": "2.0",
   "name": "blaface",
   "description": "Animated babling face",
-  "launch_path": "/index.html",
+  "launch_path": "/blaface/index.html",
   "icons": {
     "64": "/img/icons/blaface-icon-64.png",
     "128": "/img/icons/blaface-icon-128.png",
