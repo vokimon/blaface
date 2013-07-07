@@ -19,6 +19,9 @@ define(function(require) {
 
 	var svgns = "http://www.w3.org/2000/svg";
 
+	var muted = false;
+	var subtitled = true;
+
 	function log(msg) {
 		var w = $('#logwindow');
 		w.removeClass("hidden");
@@ -28,11 +31,12 @@ define(function(require) {
 	}
 
 	function subtitle(text) {
+		// Fades out the old text and fades in the new one
 		$('#subtitles').animate({opacity:0}, 'fast', 'linear',
 				function() {
 					$(this)
 						.html(text)
-						.animate( {opacity:1}, 'fast', 'linear')
+						.animate( {opacity:1}, 'normal', 'linear')
 						;
 				});
 	}
@@ -283,17 +287,34 @@ define(function(require) {
 			parpelles(0,3);
 			});
 
-		$("#mute").click(function() {
-			blaaudio = $('#blaaudio')[0];
-			blaaudio.muted= ! blaaudio.muted;
-			$('#mute').checked=blaaudio.muted;
-			});
 		$("#logclear").click(function() {
 			$('#logwindow').addClass("hidden");
 			$('#log').empty();
 			});
+
 		$("#showlog").click(function() {
-			$('#logwindow').removeClass("hidden");
+			if (this.checked)
+				$('#logwindow').removeClass("hidden");
+			else
+				$('#logwindow').addClass("hidden");
+			});
+
+		$('#muteaudio')[0].checked = muted;
+		$("#muteaudio").change(function() {
+			muted = this.checked;
+			blaaudio = $('#blaaudio')[0];
+			blaaudio.muted = muted;
+			});
+
+		$('#showsubtitles')[0].checked = subtitled;
+		$("#showsubtitles").click(function() {
+			subtitled = this.checked;
+			if (!subtitled)
+				$('#subtitles').hide();
+			else
+				$('#subtitles').show();
+			// just in case it was in between a transition
+			$('#subtitles').animate({opacity:1}, 'fast', 'linear');
 			});
 		
 	});
