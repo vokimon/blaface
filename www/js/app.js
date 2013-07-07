@@ -27,6 +27,16 @@ define(function(require) {
 		item[0].scrollTop = item[0].scrollHeight;
 	}
 
+	function subtitle(text) {
+		$('#subtitles').animate({opacity:0}, 'fast', 'linear',
+				function() {
+					$(this)
+						.html(text)
+						.animate( {opacity:1}, 'fast', 'linear')
+						;
+				});
+	}
+
 	/// For every .loadsvg, loads SVG file specified by the 'src' attribute
 	function loadsvgs()
 	{
@@ -233,6 +243,7 @@ define(function(require) {
 //			.on('repeat', rebla) // Not workin on webkit 537.36
 			;
 //		log(Array(sillabes+1).join("bla"));
+		subtitle(Array(sillabes).join("bla-")+'bla');
 		blaanimation.beginElement();
 		rebla();
 		// Hack instead of onrepeat to trigger the sillabes
@@ -275,10 +286,14 @@ define(function(require) {
 		$("#mute").click(function() {
 			blaaudio = $('#blaaudio')[0];
 			blaaudio.muted= ! blaaudio.muted;
+			$('#mute').checked=blaaudio.muted;
 			});
 		$("#logclear").click(function() {
 			$('#logwindow').addClass("hidden");
 			$('#log').empty();
+			});
+		$("#showlog").click(function() {
+			$('#logwindow').removeClass("hidden");
 			});
 		
 	});

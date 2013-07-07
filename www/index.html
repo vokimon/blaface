@@ -59,13 +59,8 @@
 		></iframe>
 	-->
 
-	<div class='actionmenu' id=''>
-		<a href="#eyelid_control" ><img src="img/icons/eyelid.svg"></a>
-		<a href="#eyebrows_control" ><img src="img/icons/eyebrow.svg"></a>
-		<a href="#settings_control" ><img src="img/icons/settings.svg"></a>
-		<a href="#links_control" ><img src="img/icons/links.svg"></a>
-	</div>
-	
+	<div id='subtitles'></div>
+
 	<div class='panelbottom' id='links_control'>
 		<h2><img class='dialogicon' src="img/icons/links.svg" />
 			Links <a class='closebutton' href="#" >X</a></h2>
@@ -79,46 +74,58 @@
 		<li><a href='http://canvoki.net/coder/'>My website</a></li>
 		</ul>
 	</div>
+
 	<div class='panelbottom' id='settings_control'>
 		<h2><img class='dialogicon' src="img/icons/settings.svg" />
 			Settings <a class='closebutton' href="#" >X</a></h2>
-		<p>
-		You can change those options.
-		</p>
 		<ul>
-		<li><a href='http://github.com/vokimon/blaface/'>Fork it in GitHub</a></li>
-		<li><a href='http://vokimon.github.io/blaface/'>Online version</a></li>
+		<li><input type='checkbox' id='showsubtitles'>
+			<label for='showsubtitles'>Show Subtitles</label></li>
+		<li><label><input type='checkbox' id='showlog' /> Show Log</label></li>
+		<li><label><input type='checkbox' id='mute' />Mute audio</label></li>
 		</ul>
 	</div>
+
 	<div class='panelbottom' id='eyebrows_control'>
 		<h2><img class='dialogicon' src="img/icons/eyebrow.svg" />
 			Eyebrows
 			<a class='closebutton' href="#" >X</a></h2>
 		<p>Not implemented yet.</p>
-		<input type='button' id='mute' value='Mute' />
 	</div>
+
 	<div class='panelbottom' id='eyelid_control'>
 		<h2><img  class='dialogicon'src="img/icons/eyelid.svg" />
 			Eyelids
 			<a class='closebutton' href="#" >X</a></h2>
-		Upper:
+		<ul>
+			<li>
+			<label for='upperlid'>Upper:
+				<input type="range"
+				id = "upperlid"
+				min="0"
+				max="34"
+				step="1"
+				value="6"></label>
+			</li>
+			<li>
+			<label for='lowerlid'>Lower:
 			<input type="range"
-			id = "upperlid"
-			min="0"
-			max="34"
-			step="1"
-			value="6"><br/>
-		Lower:
-		<input type="range"
-			id = "lowerlid"
-			min="0"
-			max="6"
-			step="1"
-			value="6"><br/>
+				id = "lowerlid"
+				min="0"
+				max="6"
+				step="1"
+				value="6"></label></li>
+		</ul>
 		<input type='button' id='sleep' value='Sleep me' />
 		<input type='button' id='awake' value='Awake me' />
-		<input type='button' id='mute' value='Mute' />
 	</div>
+	<div class='actionmenu' id=''>
+		<a href="#eyelid_control" ><img src="img/icons/eyelid.svg"></a>
+		<a href="#eyebrows_control" ><img src="img/icons/eyebrow.svg"></a>
+		<a href="#settings_control" ><img src="img/icons/settings.svg"></a>
+		<a href="#links_control" ><img src="img/icons/links.svg"></a>
+	</div>
+	
 	<audio
 		id="blaaudio" 
 		preload
