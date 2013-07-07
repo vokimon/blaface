@@ -20,7 +20,11 @@ define(function(require) {
 	var svgns = "http://www.w3.org/2000/svg";
 
 	function log(msg) {
-		$('#log').append("<p>"+msg+"</p>");
+		var w = $('#logwindow');
+		w.removeClass("hidden");
+		var item = $('#log');
+		item.append(msg+"<br/>");
+		item[0].scrollTop = item[0].scrollHeight;
 	}
 
 	/// For every .loadsvg, loads SVG file specified by the 'src' attribute
@@ -190,14 +194,13 @@ define(function(require) {
 			"z"
 		]);
 	}
-	function playBlas(n) {
-		if (n<=0) return function() {};
-		return function() {
-			blaaudio = $("#blaaudio");
-			window.setTimeout(playBlas(n-1), 500);
-			blaaudio[0].currentTime=0;
-			blaaudio[0].play();
-		}
+	function rebla()
+	{
+//		log("rebla");
+		blaaudio = $("#blaaudio");
+		blaaudio[0].pause();
+		blaaudio[0].currentTime=0;
+		blaaudio[0].play();
 	}
 	function bla() {
 		sillabes = Math.floor(Math.random()*4)+1;
@@ -223,23 +226,21 @@ define(function(require) {
 			].join(";");
 		wordseconds = (sillabes+1)*0.3;
 		$(blaanimation)
+			.off()
 			.attr('values', sillabe)
 			.attr('dur', 0.3)
 			.attr('repeatCount', sillabes)
-			.on('repeat', function() {
-				blaaudio = $("#blaaudio");
-				blaaudio[0].pause();
-				blaaudio[0].currentTime=0;
-				blaaudio[0].play();
-				})
+//			.on('repeat', rebla) // Not workin on webkit 537.36
 			;
+//		log(Array(sillabes+1).join("bla"));
 		blaanimation.beginElement();
-		blaaudio = $("#blaaudio");
-		blaaudio[0].currentTime=0;
-		blaaudio[0].play();
+		rebla();
+		// Hack instead of onrepeat to trigger the sillabes
+		for (var i=1; i<sillabes; i++)
+			window.setTimeout(rebla, i*0.3*1000);
+		// Next bla word
 		nextBla = Math.random()*2000+wordseconds*1000;
 		window.setTimeout(bla, nextBla);
-
 	}
 
 	// Write your app here.
@@ -275,6 +276,11 @@ define(function(require) {
 			blaaudio = $('#blaaudio')[0];
 			blaaudio.muted= ! blaaudio.muted;
 			});
+		$("#logclear").click(function() {
+			$('#logwindow').addClass("hidden");
+			$('#log').empty();
+			});
+		
 	});
 
 

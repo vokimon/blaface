@@ -23,6 +23,11 @@
 	<!-- Write your application here -->
 	<h1>The Bla Face</h1>
 
+	<div id='logwindow' class='hidden'>
+	<h2>Log <div id='logclear'>X</div></h2>
+	<div id='log'>
+	</div>
+	</div>
 
 	<!-- Inserting external svg via js -->
 	<!--
@@ -57,18 +62,42 @@
 	<div class='actionmenu' id=''>
 		<a href="#eyelid_control" ><img src="img/icons/eyelid.svg"></a>
 		<a href="#eyebrows_control" ><img src="img/icons/eyebrow.svg"></a>
+		<a href="#settings_control" ><img src="img/icons/settings.svg"></a>
+		<a href="#links_control" ><img src="img/icons/links.svg"></a>
 	</div>
 	
+	<div class='panelbottom' id='links_control'>
+		<h2><img class='dialogicon' src="img/icons/links.svg" />
+			Links <a class='closebutton' href="#" >X</a></h2>
+		<p>
+		Bla Face is my exercise to learn
+		WebApplication development and SVG manipulation.
+		</p>
+		<ul>
+		<li><a href='http://vokimon.github.io/blaface/'>Online version</a></li>
+		<li><a href='http://github.com/vokimon/blaface/'>Fork it in GitHub</a></li>
+		<li><a href='http://canvoki.net/coder/'>My website</a></li>
+		</ul>
 	</div>
-
-	<div class='actionbuttons' id='eyebrows_control'>
+	<div class='panelbottom' id='settings_control'>
+		<h2><img class='dialogicon' src="img/icons/settings.svg" />
+			Settings <a class='closebutton' href="#" >X</a></h2>
+		<p>
+		You can change those options.
+		</p>
+		<ul>
+		<li><a href='http://github.com/vokimon/blaface/'>Fork it in GitHub</a></li>
+		<li><a href='http://vokimon.github.io/blaface/'>Online version</a></li>
+		</ul>
+	</div>
+	<div class='panelbottom' id='eyebrows_control'>
 		<h2><img class='dialogicon' src="img/icons/eyebrow.svg" />
 			Eyebrows
 			<a class='closebutton' href="#" >X</a></h2>
 		<p>Not implemented yet.</p>
 		<input type='button' id='mute' value='Mute' />
 	</div>
-	<div class='actionbuttons' id='eyelid_control'>
+	<div class='panelbottom' id='eyelid_control'>
 		<h2><img  class='dialogicon'src="img/icons/eyelid.svg" />
 			Eyelids
 			<a class='closebutton' href="#" >X</a></h2>
@@ -96,8 +125,6 @@
 		autoload
 		src = 'bla.wav'
 		/>
-	<div id='log'>
-	</div>
 
 	<!-- Using require.js, a module system for javascript, include the
 		 js files. This loads "main.js", which in turn can load other

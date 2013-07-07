@@ -32,6 +32,26 @@ body, html
 	padding: 0px;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active
+{
+	color: #ffa;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover,
+a:active
+{
+	color: white;
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+
 .actionmenu
 {
 	text-align: center;
@@ -65,7 +85,7 @@ body, html
 	vertical-align:middle;
 }
 
-.actionbuttons
+.panelbottom
 {
 	text-align: center;
     background: rgba(133, 156, 228, .1);
@@ -73,37 +93,58 @@ body, html
     border-top-color: red;
     box-shadow: inset 1px 1px 8px 1px #1b335b;
 	padding: 10px;
-	bottom: -150px;
 	left: 1px;
 	right: 1px;
 	position: fixed;
 	color: white;
 	text-shadow: black 1px 1px 2px;
-	transition-duration: 1s;
 }
 
-.actionbuttons img.dialogicon
+.panelbottom /* not on target */
+{
+	transition-duration: 1s;
+	opacity:0;
+	bottom: -150px;
+	pointer-events:none;
+}
+
+.panelbottom:target
+{
+	transition-duration: 1s;
+	opacity:1;
+	bottom: 0px;
+	pointer-events:inherit;
+}
+
+.panelbottom h2
+{
+	margin: 0;
+	font-size: 14pt;
+}
+
+.panelbottom h2 img
+{
+	vertical-align:text-top;
+	margin-right: 10px;
+	width: 32px;
+}
+
+.panelbottom img.dialogicon
 {
 	float: left;
 }
 
-.actionbuttons a.closebutton:link,
-.actionbuttons a.closebutton:visited,
-.actionbuttons a.closebutton:hover
-.actionbuttons a.closebutton
+.panelbottom a.closebutton:link,
+.panelbottom a.closebutton:visited,
+.panelbottom a.closebutton:hover
+.panelbottom a.closebutton
 {
 	float: right;
 	color: white;
 	text-decoration: none;
 }
 
-.actionbuttons:target
-{
-	bottom: 0px;
-	transition-duration: 1s;
-}
-
-.actionbuttons input
+.panelbottom input
 {
 	padding: 3px;
 	background: #44f;
@@ -113,7 +154,7 @@ body, html
 	margin: 2px;
 }
 
-.actionbuttons input[type="button"]
+.panelbottom input[type="button"]
 {
 	color: white;
 	text-shadow: black 1px 1px 2px;
@@ -126,13 +167,13 @@ body, html
 	padding: 4px 5px;
 }
 
-.actionbuttons input[type="button"]:hover
+.panelbottom input[type="button"]:hover
 {
 	background: linear-gradient(bottom, #373F37, #2a92f7);
 	background: -webkit-linear-gradient(bottom, #373F37, #2a92f7);
 	background: -moz-linear-gradient(bottom, #373F37, #2a92f7);
 }
-.actionbuttons input[type="button"]:active
+.panelbottom input[type="button"]:active
 {
 	background: linear-gradient(top, #272F27, #1a82f7);
 	background: -webkit-linear-gradient(top, #272F27, #1a82f7);
@@ -158,20 +199,50 @@ h1
 	background: #444;
 }
 
-.actionbuttons h2
+#logwindow {
+	position: fixed;
+    background: rgba(133, 156, 228, .1);
+    border: 1px solid #1b335b;
+    border-right-color: red;
+    box-shadow: inset 1px 1px 8px 1px #1b335b;
+	text-shadow: black 1px 1px 2px;
+	left: 0;
+	bottom: 0%;
+	top: 35px;
+	width: 25%;
+	opacity: 1;
+	transition: 1s;
+}
+#logwindow.hidden
 {
-	margin: 0;
-	font-size: 14pt;
+	display: none;
+	left: -26%;
+	transition: 1s;
+	opacity: 0;
+	padding-bottom: 20px;
+}
+#logwindow h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	background: #aaa;
+	position: relative;
+	top: 0;
+	padding: 3px;
 }
 
-.actionbuttons h2 img
-{
-	vertical-align:text-top;
-	margin-right: 10px;
-	width: 32px;
+#logwindow h2 * {
+	/* dock icons */
+	float: right;
 }
 
-
+#log {
+	position: relative;
+	bottom: 0px;
+	top: 0;
+	max-height: 90%;
+	overflow:auto;
+	background: rgba(0,256,0,.8);
+}
 
 
 
