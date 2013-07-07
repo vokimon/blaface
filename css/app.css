@@ -32,6 +32,39 @@ body, html
 	padding: 0px;
 }
 
+.actionmenu
+{
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+.actionmenu a
+{
+	display: inline-block;
+	margin: 5px;
+	margin-bottom: 10px;
+	border-radius: 30px;
+	box-shadow: black 1px 1px 2px;
+	background: #030;
+}
+.actionmenu a:hover
+{
+	background: #242;
+}
+.actionmenu a:active
+{
+	background: #353;
+}
+
+.actionmenu a img
+{
+	width:32px;
+	padding: 5px;
+	vertical-align:middle;
+}
+
 .actionbuttons
 {
 	text-align: center;
@@ -40,12 +73,34 @@ body, html
     border-top-color: red;
     box-shadow: inset 1px 1px 8px 1px #1b335b;
 	padding: 10px;
-	bottom: 0pt;
-	left: 1pt;
-	right: 1pt;
+	bottom: -150px;
+	left: 1px;
+	right: 1px;
 	position: fixed;
 	color: white;
 	text-shadow: black 1px 1px 2px;
+	transition-duration: 1s;
+}
+
+.actionbuttons img.dialogicon
+{
+	float: left;
+}
+
+.actionbuttons a.closebutton:link,
+.actionbuttons a.closebutton:visited,
+.actionbuttons a.closebutton:hover
+.actionbuttons a.closebutton
+{
+	float: right;
+	color: white;
+	text-decoration: none;
+}
+
+.actionbuttons:target
+{
+	bottom: 0px;
+	transition-duration: 1s;
 }
 
 .actionbuttons input
@@ -103,11 +158,17 @@ h1
 	background: #444;
 }
 
-h2
+.actionbuttons h2
 {
 	margin: 0;
 	font-size: 14pt;
+}
 
+.actionbuttons h2 img
+{
+	vertical-align:text-top;
+	margin-right: 10px;
+	width: 32px;
 }
 
 

@@ -54,8 +54,24 @@
 		></iframe>
 	-->
 
-	<div class='actionbuttons'>
-		<h2>Eyelids</h2>
+	<div class='actionmenu' id=''>
+		<a href="#eyelid_control" ><img src="img/icons/eyelid.svg"></a>
+		<a href="#eyebrows_control" ><img src="img/icons/eyebrow.svg"></a>
+	</div>
+	
+	</div>
+
+	<div class='actionbuttons' id='eyebrows_control'>
+		<h2><img class='dialogicon' src="img/icons/eyebrow.svg" />
+			Eyebrows
+			<a class='closebutton' href="#" >X</a></h2>
+		<p>Not implemented yet.</p>
+		<input type='button' id='mute' value='Mute' />
+	</div>
+	<div class='actionbuttons' id='eyelid_control'>
+		<h2><img  class='dialogicon'src="img/icons/eyelid.svg" />
+			Eyelids
+			<a class='closebutton' href="#" >X</a></h2>
 		Upper:
 			<input type="range"
 			id = "upperlid"
