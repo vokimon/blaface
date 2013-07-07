@@ -135,7 +135,7 @@ define(function(require) {
 				'id': 'blinkanimation',
 				'begin': 'indefinite',
 				'dur': '0.2s',
-				'fill': 'freeze',
+				'fill': 'remove',
 				});
 			$(lids).append(blinkanimation);
 		}
