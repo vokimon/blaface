@@ -85,18 +85,25 @@ ul {
 	vertical-align:middle;
 }
 
+.panelbottom:target ~ .actionmenu
+{
+	border: 1pt solid yellow;
+	background: red;
+	display: none;
+}
+
 .panelbottom
 {
 	text-align: center;
-    background: rgba(133, 156, 228, .1);
-    border: 1px solid #1b335b;
-    border-top-color: red;
-    box-shadow: inset 1px 1px 8px 1px #1b335b;
-	padding: 10px;
 	left: 1px;
 	right: 1px;
 	position: fixed;
 	color: white;
+	background: rgba(133, 156, 228, .2);
+	border: 1px solid #1b335b;
+	border-top-color: red;
+	box-shadow: inset 1px 1px 8px 1px #1b335b;
+	padding: 10px;
 	text-shadow: black 1px 1px 2px;
 }
 
@@ -134,14 +141,9 @@ ul {
 	float: left;
 }
 
-.panelbottom a.closebutton:link,
-.panelbottom a.closebutton:visited,
-.panelbottom a.closebutton:hover
-.panelbottom a.closebutton
+.panelbottom .closebutton
 {
 	float: right;
-	color: white;
-	text-decoration: none;
 }
 
 .panelbottom input
@@ -179,6 +181,19 @@ ul {
 	background: -webkit-linear-gradient(top, #272F27, #1a82f7);
 	background: -moz-linear-gradient(top, #272F27, #1a82f7);
 }
+
+.panelbottom input[type='checkbox']
+{
+	display: none;
+}
+
+.panelbottom input[type='checkbox'] ~ label
+{
+	background: white;
+	padding: 10px;
+	border: red;
+}
+
 
 #faceit
 {
@@ -243,6 +258,16 @@ h1
 	overflow:auto;
 	background: rgba(0,256,0,.8);
 }
+
+
+#subtitles {
+	margin: 15px;
+	width: 80%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 
 
