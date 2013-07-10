@@ -21,6 +21,7 @@ define(function(require) {
 
 	var muted = false;
 	var subtitled = true;
+	var previousGlance = '0,0';
 
 	function log(msg) {
 		var w = $('#logwindow');
@@ -62,7 +63,6 @@ define(function(require) {
 		// For object and embed
 		if (container.contentDocument)
 			return container.contentDocument;
-
 
 		return $(container).contents();
 		// Old browsers have getSVGDocument instead
@@ -168,23 +168,24 @@ define(function(require) {
 	function glance()
 	{
 		var svg = faceitsvg();
-		var eyes = $(svg).find("#pupilas");
+		var eyes = $(svg).find("#eyepupils");
 		var eyesanimation = $(eyes).find("#eyesanimation")[0];
 		if (eyesanimation === undefined)
 		{
 			eyesanimation = svgNew("animateMotion");
 			$(eyesanimation).attr({
 				'id': 'eyesanimation',
-				'calcMode' : 'linear',
 				'begin': 'indefinite',
-				'dur': '0.1s',
+				'dur': '0.3s',
 				'fill': 'freeze',
 				});
 			$(eyes).append(eyesanimation);
 		}
-		x = Math.random()*15-7;
-		y = Math.random()*10-5;
-		$(eyesanimation).attr('path', "M 0,0 "+ [x,y].join(","));
+		var x = Math.random()*15-7;
+		var y = Math.random()*10-5;
+		var currentGlance = [x,y].join(',');
+		$(eyesanimation).attr('path', "M "+previousGlance+" L "+currentGlance);
+		previousGlance = currentGlance;
 		eyesanimation.beginElement();
 		nextGlance = Math.random()*1000+4000;
 		window.setTimeout(glance, nextGlance);
@@ -208,16 +209,15 @@ define(function(require) {
 			"z"
 		]);
 	}
-	function rebla()
+	function sayBla()
 	{
-//		log("rebla");
+//		log("sayBla");
 		blaaudio = $("#blaaudio");
 		blaaudio[0].pause();
 		blaaudio[0].currentTime=0;
 		blaaudio[0].play();
 	}
 	function bla() {
-		sillabes = Math.floor(Math.random()*4)+1;
 		var svg = faceitsvg();
 		var mouth = $(svg).find("#mouth");
 		var blaanimation = $(mouth).find("#blaanimation")[0];
@@ -228,33 +228,31 @@ define(function(require) {
 				'attributeName': 'd',
 				'id': 'blaanimation',
 				'begin': 'indefinite',
-				'dur': '0.6s',
-				'fill': 'freeze',
+				'dur': '0.3s',
 				});
 			$(mouth).append(blaanimation);
 		}
-		sillabe = [
+		var syllable = [
 			mouthPath(0),
 			mouthPath(10),
 			mouthPath(0),
 			].join(";");
-		wordseconds = (sillabes+1)*0.3;
+		var syllables = Math.floor(Math.random()*4)+1;
 		$(blaanimation)
 			.off()
-			.attr('values', sillabe)
-			.attr('dur', 0.3)
-			.attr('repeatCount', sillabes)
-//			.on('repeat', rebla) // Not workin on webkit 537.36
+			.attr('values', syllable)
+			.attr('repeatCount', syllables)
+//			.on('repeat', sayBla) // Not workin on webkit 537.36
 			;
-//		log(Array(sillabes+1).join("bla"));
-		subtitle(Array(sillabes).join("bla-")+'bla');
+		subtitle(Array(syllables).join("bla-")+'bla');
 		blaanimation.beginElement();
-		rebla();
-		// Hack instead of onrepeat to trigger the sillabes
-		for (var i=1; i<sillabes; i++)
-			window.setTimeout(rebla, i*0.3*1000);
+		sayBla();
+		// Hack instead of onrepeat to trigger the syllables
+		for (var i=1; i<syllables; i++)
+			window.setTimeout(sayBla, i*0.3*1000);
 		// Next bla word
-		nextBla = Math.random()*2000+wordseconds*1000;
+		var wordseconds = (syllables+1)*0.3;
+		var nextBla = Math.random()*2000+wordseconds*1000;
 		window.setTimeout(bla, nextBla);
 	}
 
@@ -263,9 +261,6 @@ define(function(require) {
 	var lowerlid = 8;
 	loadsvgs();
 	$(document).ready(function(){
-		glance();
-		blink();
-		bla();
 		$('#lowerlid').on('change', function(e) {
 			var temp = parseFloat($(this).val());
 			if (! isNaN(temp)) lowerlid = temp;
@@ -317,6 +312,9 @@ define(function(require) {
 			$('#subtitles').animate({opacity:1}, 'fast', 'linear');
 			});
 		
+		glance();
+		blink();
+		bla();
 	});
 
 
