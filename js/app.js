@@ -17,6 +17,9 @@ define(function(require) {
 	// index.html
 	require('./install-button');
 
+	// Touch gestures
+	require('hammer');
+
 	var svgns = "http://www.w3.org/2000/svg";
 
 	var muted = false;
@@ -57,7 +60,7 @@ define(function(require) {
 		});
 	}
 
-	function faceitsvg()
+	function svgRoot()
 	{
 		var container = $(document).find("#faceit")[0];
 		// For object and embed
@@ -75,7 +78,7 @@ define(function(require) {
 
 	function svgNew(elementType)
 	{
-		svg = faceitsvg();
+		svg = svgRoot();
 		try {
 			return svg.createElementNS(svgns, elementType);
 		}
@@ -132,7 +135,7 @@ define(function(require) {
 		}
 
 	function parpelles(upper, lower) {
-		var svg = faceitsvg();
+		var svg = svgRoot();
 		var eyelid = $(svg).find('#eyelid_r');
 		var blinkanimation = $(eyelid).find("#blinkanimation")[0];
 		if (blinkanimation !== undefined)
@@ -141,7 +144,7 @@ define(function(require) {
 	}
 
 	function blink() {
-		var svg = faceitsvg();
+		var svg = svgRoot();
 		var lids = $(svg).find("#eyelid_r");
 		var current = lids.attr("d");
 		var blinkanimation = $(lids).find("#blinkanimation")[0];
@@ -167,7 +170,7 @@ define(function(require) {
 
 	function glance()
 	{
-		var svg = faceitsvg();
+		var svg = svgRoot();
 		var eyes = $(svg).find("#eyepupils");
 		var eyesanimation = $(eyes).find("#eyesanimation")[0];
 		if (eyesanimation === undefined)
@@ -218,7 +221,7 @@ define(function(require) {
 		blaaudio[0].play();
 	}
 	function bla() {
-		var svg = faceitsvg();
+		var svg = svgRoot();
 		var mouth = $(svg).find("#mouth");
 		var blaanimation = $(mouth).find("#blaanimation")[0];
 		if (blaanimation === undefined)
@@ -273,12 +276,12 @@ define(function(require) {
 			});
 
 		$('#sleep').click(function() {
-			var svg = faceitsvg();
+			var svg = svgRoot();
 			parpelles(18,0);
 			});
 
 		$('#awake').click(function() {
-			var svg = faceitsvg();
+			var svg = svgRoot();
 			parpelles(0,3);
 			});
 
@@ -311,7 +314,22 @@ define(function(require) {
 			// just in case it was in between a transition
 			$('#subtitles').animate({opacity:1}, 'fast', 'linear');
 			});
-		
+
+		$('.panelbottom').hammer({
+				prevent_mouseevents: false,
+			})
+			.on("swipedown", function(e) {
+				document.location = "#";
+			});
+
+		$(svgRoot()).find('#eyelid_r').hammer({
+			}).on('pinchin', function(e)
+			{
+				// TODO: how to use that
+				console.log(e.gesture);
+//				parpelles(30,0);
+			});
+
 		glance();
 		blink();
 		bla();
