@@ -17,9 +17,6 @@ define(function(require) {
 	// index.html
 	require('./install-button');
 
-	// Touch gestures
-	require('hammer');
-
 	var svgns = "http://www.w3.org/2000/svg";
 
 	var muted = false;
@@ -315,20 +312,14 @@ define(function(require) {
 			$('#subtitles').animate({opacity:1}, 'fast', 'linear');
 			});
 
-		$('.panelbottom').hammer({
-				prevent_mouseevents: false,
-			})
-			.on("swipedown", function(e) {
-				document.location = "#";
+		$('.panelbottom h2').click(function() {
+			console.log("Boo");
+			document.location = "#";
 			});
 
-		$(svgRoot()).find('#eyelid_r').hammer({
-			}).on('pinchin', function(e)
-			{
-				// TODO: how to use that
-				console.log(e.gesture);
-//				parpelles(30,0);
-			});
+		$('#eyelid_r', svgRoot()).tap(function(e) {
+			console.log("tapped");
+		})
 
 		glance();
 		blink();
